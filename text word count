@@ -1,0 +1,25 @@
+library(dplyr)
+library(data.table)
+library(readtext)
+
+setwd("C:/Users/xyu/Downloads")
+
+t11 <- read.table("0-1001250-DEF 14A-2005-09-28_1.txt", 
+                 sep="\t", 
+                 #col.names=c("id", "name"), 
+                 fill=FALSE, 
+                 strip.white=TRUE)
+
+t12 <- paste( unlist(t11), collapse='')
+
+t13 <- as.data.frame(strsplit(t12, " "))
+colnames(t13) <- c("word")
+
+t13.length <- sapply(strsplit(t12, " "), length)
+t13.length
+
+length(t13$word)
+
+
+
+
